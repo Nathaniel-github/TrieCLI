@@ -1,21 +1,22 @@
 import inquirer
 from inquirer.themes import GreenPassion
-import socket
-
-HOST = '34.94.55.153'
-PORT = 61135
+from cli.trie_nathaniel import request
+import click
 
 
-def request(op, value=None):
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect((HOST, PORT))
-        s.sendall(bytes(str((op, value)), encoding='utf8'))
-        data = s.recv(1024).decode('utf8')
-
-    print(data)
+@click.group()
+def cli():
+    pass
 
 
-def main():
+@cli.command()
+@click.option('-a', '--add', type=str, help='Value to add to the trie', nargs=1)
+def direct():
+
+
+
+@cli.command()
+def ui():
     question = [
         inquirer.List('choice',
                       message='What operation would you like to perform',
@@ -36,6 +37,3 @@ def main():
     else:
         request(choice)
 
-
-if __name__ == '__main__':
-    main()

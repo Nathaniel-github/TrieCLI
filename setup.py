@@ -1,27 +1,30 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", "r") as f:
     ld = f.read()
 
+with open("requirements.txt", "r") as f:
+    rq = f.read().splitlines()
+
 setup(
-    name='trie-nathaniel',
-    version='0.1.1',
+    name='trie_nathaniel',
+    version='0.0.4',
     description='Calls commands to the trie server that can modify its state',
     python_requires='>=3.6',
-    install_requires = [
-        "inquirer >= 2.0"
-    ],
+    install_requires=rq,
+    packages=find_packages(),
+    include_package_data=True,
+    zip_safe=False,
     author='Nathaniel Thomas',
     author_email='catchnate+pypi@gmail.com',
-    py_modules=["triecli"],
-    package_dir={'': 'src'},
+    py_modules=["triecli", "cli"],
     license='MIT',
     url='https://github.com/Nathaniel-github/TrieClient',
     long_description=ld,
     long_description_content_type='text/markdown',
     entry_points={
         "console_scripts": [
-            "triecli=trie_nathaniel:main",
+            "triecli=triecli:cli",
         ]
     },
 
