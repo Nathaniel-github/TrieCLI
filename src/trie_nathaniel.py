@@ -2,8 +2,8 @@ import inquirer
 from inquirer.themes import GreenPassion
 import socket
 
-HOST = '127.0.0.1'
-PORT = 65436
+HOST = '34.94.55.153'
+PORT = 61135
 
 
 def request(op, value=None):
@@ -15,7 +15,7 @@ def request(op, value=None):
     print(data)
 
 
-if __name__ == '__main__':
+def main():
     question = [
         inquirer.List('choice',
                       message='What operation would you like to perform',
@@ -35,3 +35,7 @@ if __name__ == '__main__':
         request(choice, val)
     else:
         request(choice)
+
+
+if __name__ == '__main__':
+    main()
