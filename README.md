@@ -22,6 +22,9 @@
     The client CLI for my globally hosted trie through GCP
     <br />
     <a href="https://github.com/Nathaniel-github/TrieClient"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://pypi.org/project/trie-nathaniel/">View on PyPi</a>
   </p>
 </div>
 
