@@ -10,25 +10,25 @@ def cli():
 
 
 @cli.command()
-@click.argument(type=str, help='Adds the given word to the trie', nargs=1)
+@click.argument(type=str, help='Adds the given word to the trie')
 def add(val:str):
     request('Add keyword', val)
 
 
 @cli.command()
-@click.argument(type=str, help='Deletes the given word from the trie', nargs=1)
+@click.argument(type=str, help='Deletes the given word from the trie')
 def delete(val:str):
     request('Delete keyword', val)
 
 
 @cli.command()
-@click.argument(type=str, help='Searches the trie to see if the given word exists', nargs=1)
+@click.argument(type=str, help='Searches the trie to see if the given word exists')
 def search(val:str):
     request('Search for keyword', val)
 
 
 @cli.command()
-@click.argument(type=str, help='Autocompletes the prefix from the known values in the trie', nargs=1)
+@click.argument(type=str, help='Autocompletes the prefix from the known values in the trie')
 def complete(val:str):
     request('Autocomplete by prefix', val)
 
