@@ -5,46 +5,74 @@ import click
 
 
 @click.group()
-def cli():
+def cli() -> None:
     pass
 
 
 @cli.command()
 @click.argument(type=str, help='Adds the given word to the trie')
-def add(val:str):
+def add(val: str) -> None:
+    """Adds the given word to trie and displays the status of the operation
+
+    Args:
+        val (str): The word you wish to add to the trie
+    """
     request('Add keyword', val)
 
 
 @cli.command()
 @click.argument(type=str, help='Deletes the given word from the trie')
-def delete(val:str):
+def delete(val: str) -> None:
+    """Deletes a word from the trie if it exists and displays the status of the operation
+
+    Args:
+        val (str): The word you wish to delete from the trie
+    """
     request('Delete keyword', val)
 
 
 @cli.command()
 @click.argument(type=str, help='Searches the trie to see if the given word exists')
-def search(val:str):
+def search(val: str) -> None:
+    """Searches the trie for the given word and will display whether or not it was found
+
+    Args:
+        val (str): The word you want to check exists in the trie
+    """
     request('Search for keyword', val)
 
 
 @cli.command()
 @click.argument(type=str, help='Autocompletes the prefix from the known values in the trie')
-def complete(val:str):
+def complete(val: str) -> None:
+    """Displays all possible completions of words from the given prefix according to existing words in the trie
+
+    Args:
+        val (str): The prefix you wish to search the trie for auto-completions of
+    """
     request('Autocomplete by prefix', val)
 
 
 @cli.command(help='Displays the trie using recursion (slower)')
-def view():
+def view() -> None:
+    """Displays all the elements in the trie in a slower manner than could be done. Since this retrieves the elements
+    of the trie using recursion it is slower but it tests the implementation of the recursive method
+    """
     request('Display trie')
 
 
 @cli.command(help='Displays the trie from the pre-stored array values (faster)')
-def viewfast():
+def viewfast() -> None:
+    """Displays all the elements in the trie in the fastest way possible. This is done through a separate array that
+    holds all values in the trie
+    """
     request('Display trie fast')
 
 
 @cli.command(help='Runs the CLI with a nice user interface')
-def ui():
+def ui() -> None:
+    """Initiates the CLI UI with beautiful controls and easy to navigate options
+    """
     question = [
         inquirer.List('choice',
                       message='What operation would you like to perform',
@@ -67,4 +95,3 @@ def ui():
             request(choice, val)
         else:
             request(choice)
-
