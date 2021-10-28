@@ -6,4 +6,3 @@ TrieClient
 
    triecli
    cli
-   conf
