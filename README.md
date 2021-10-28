@@ -102,7 +102,7 @@ For direct cli calls use:
 ```
 triecli {option} {arg}
 ```
-where {option} is replaced with the type of operation you would like to perform and {arg} is added if the option you are calling requires an argument
+where `{option}` is replaced with the type of operation you would like to perform and `{arg}` is added if the option you are calling requires an argument
 
 Possible options include `add`, `delete`, `search`, `complete`, `view`, and `viewfast`
 
