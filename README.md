@@ -108,7 +108,7 @@ Possible options include `add`, `delete`, `search`, `complete`, `view`, and `vie
 
 For `add`, `delete`, `search`, `complete` an additional `arg` parameter is required that includes the value you would like to add to the trie
 
-_For explanations, please refer to the [Documentation](https://example.com)_
+_For explanations, please refer to the [Documentation](https://trieclient.readthedocs.io/en/latest/index.html)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
