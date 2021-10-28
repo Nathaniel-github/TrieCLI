@@ -1,7 +1,7 @@
 import socket
+import time
 
-
-HOST = '34.94.55.153'
+HOST = '35.235.69.154'
 PORT = 61135
 
 
@@ -18,4 +18,6 @@ def request(op: str, value: str = None) -> None:
         data = s.recv(1024).decode('utf8')
 
     print(data)
+    time.sleep(0.5)
+    print('\n\n')
 

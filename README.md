@@ -77,6 +77,7 @@ sudo apt-get install python3.6
   ```
 
 <div id="installation"></div>
+
 ### Installation
 
 Run the following to install:
