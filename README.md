@@ -104,7 +104,7 @@ triecli {option} {arg}
 ```
 where `{option}` is replaced with the type of operation you would like to perform and `{arg}` is added if the option you are calling requires an argument
 
-Possible options include `add`, `delete`, `search`, `complete`, `view`, and `viewfast`
+Possible options include `add`, `delete`, `deleteall`, `search`, `complete`, `view`, and `viewfast`
 
 For `add`, `delete`, `search`, `complete` an additional `arg` parameter is required that includes the value you would like to add to the trie
 

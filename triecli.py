@@ -1,3 +1,4 @@
+import time
 import inquirer
 from inquirer.themes import GreenPassion
 from cli.trie_nathaniel import request
@@ -17,7 +18,7 @@ def add(val: str) -> None:
     Args:
         val (str): The word you wish to add to the trie
     """
-    request('Add keyword', val)
+    print(request('Add keyword', val))
 
 
 @cli.command()
@@ -28,7 +29,13 @@ def delete(val: str) -> None:
     Args:
         val (str): The word you wish to delete from the trie
     """
-    request('Delete keyword', val)
+    print(request('Delete keyword', val))
+
+
+@cli.command()
+def deleteall() -> None:
+    """Deletes everything from the trie"""
+    print(request('Delete all'))
 
 
 @cli.command()
@@ -39,7 +46,7 @@ def search(val: str) -> None:
     Args:
         val (str): The word you want to check exists in the trie
     """
-    request('Search for keyword', val)
+    print(request('Search for keyword', val))
 
 
 @cli.command()
@@ -50,7 +57,7 @@ def complete(val: str) -> None:
     Args:
         val (str): The prefix you wish to search the trie for auto-completions of
     """
-    request('Autocomplete by prefix', val)
+    print(request('Autocomplete by prefix', val))
 
 
 @cli.command()
@@ -58,7 +65,7 @@ def view() -> None:
     """Displays all the elements in the trie in a slower manner than could be done. Since this retrieves the elements
     of the trie using recursion it is slower but it tests the implementation of the recursive method
     """
-    request('Display trie')
+    print(request('Display trie'))
 
 
 @cli.command()
@@ -66,7 +73,7 @@ def viewfast() -> None:
     """Displays all the elements in the trie in the fastest way possible. This is done through a separate array that
     holds all values in the trie
     """
-    request('Display trie fast')
+    print(request('Display trie fast'))
 
 
 @cli.command()
@@ -76,7 +83,8 @@ def ui() -> None:
     question = [
         inquirer.List('choice',
                       message='What operation would you like to perform',
-                      choices=['Add keyword', 'Delete keyword', 'Search for keyword', 'Autocomplete by prefix',
+                      choices=['Add keyword', 'Delete keyword', 'Delete all', 'Search for keyword', 'Autocomplete by '
+                                                                                                    'prefix',
                                'Display trie', 'Display trie fast', 'Exit'],
                       carousel=True)
     ]
@@ -84,19 +92,24 @@ def ui() -> None:
         inquirer.Text('val',
                       message='Enter a word')
     ]
+
+    single_request_prompts = ['Display trie', 'Display trie fast', 'Delete all']
+
     while True:
         choice = inquirer.prompt(question, theme=GreenPassion())['choice']
 
         if choice == 'Exit':
             quit()
 
-        if choice != 'Display trie' and choice != 'Display trie fast':
+        if choice not in single_request_prompts:
             val = inquirer.prompt(question2, theme=GreenPassion())['val']
-            request(choice, val)
+            print(request(choice, val))
         else:
-            request(choice)
+            print(request(choice))
+
+        time.sleep(0.2)
+        print('\n\n')
 
 
 if __name__ == '__main__':
     ui()
-

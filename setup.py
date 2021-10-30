@@ -8,9 +8,9 @@ with open("requirements.txt", "r") as f:
 
 setup(
     name='trie_nathaniel',
-    version='0.0.7',
+    version='0.1.1',
     description='Calls commands to the trie server that can modify its state',
-    python_requires='>=3.6',
+    python_requires='>=3.6, < 3.10',
     install_requires=rq,
     packages=find_packages(),
     include_package_data=True,
@@ -19,7 +19,7 @@ setup(
     author_email='catchnate+pypi@gmail.com',
     py_modules=["triecli", "cli"],
     license='MIT',
-    url='https://github.com/Nathaniel-github/TrieClient',
+    url='https://github.com/Nathaniel-github/TrieCLI',
     long_description=ld,
     long_description_content_type='text/markdown',
     entry_points={

@@ -1,12 +1,11 @@
 import socket
-import time
 from struct import pack
 
 HOST = '35.235.69.154'
 PORT = 61135
 
 
-def request(op: str, value: str = None) -> None:
+def request(op: str, value: str = None) -> str:
     """Sends a TCP request to the server with a packet containing the desired operation and value to be added
 
     Args:
@@ -21,7 +20,5 @@ def request(op: str, value: str = None) -> None:
         s.sendall(data)
         data = s.recv(1024).decode('utf8')
 
-    print(data)
-    time.sleep(0.5)
-    print('\n\n')
+    return data
 
